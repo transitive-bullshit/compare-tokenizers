@@ -26,7 +26,9 @@ This repo only tests tokenizers aimed at text, not code-specific tokenizers like
 | [@dqbd/tiktoken](https://github.com/dqbd/tiktoken) gpt2             | 9267              | 1490          |
 | [@dqbd/tiktoken](https://github.com/dqbd/tiktoken) text-davinci-003 | 9078              | 733           |
 
-> **Note** > `@dqbd/tiktoken` which is a wasm port of the official Rust `tiktoken` is ~3-6x faster than JS variants with significantly less memory overhead and variance.
+_(lower times are better)_
+
+`@dqbd/tiktoken` which is a wasm port of the official Rust `tiktoken` is **~3-6x faster than the JS variants** with significantly less memory overhead and variance. 🔥
 
 To reproduce:
 
