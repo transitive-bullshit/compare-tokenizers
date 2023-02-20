@@ -19,12 +19,12 @@ This repo only tests tokenizers aimed at text, not code-specific tokenizers like
 
 ## Benchmark
 
-| Package / encoder                 | Average Time (ps) | Variance (ps)      |
-| --------------------------------- | ----------------- | ------------------ |
-| 'gpt3-tokenizer'                  | 56915.8661365509  | 290265.5798558206  |
-| 'gpt-3-encoder'                   | 31517.61498451233 | 349758.8963050673  |
-| '@dqbd/tiktoken gpt2'             | 9156.29712451588  | 1524.8703861656925 |
-| '@dqbd/tiktoken text-davinci-003' | 8824.23144056086  | 414.177464988782   |
+| Package / encoder                 | Average Time (ms) | Variance (ms) |
+| --------------------------------- | ----------------- | ------------- |
+| 'gpt3-tokenizer'                  | 56132             | 334621        |
+| 'gpt-3-encoder'                   | 31148             | 333120        |
+| '@dqbd/tiktoken gpt2'             | 9267              | 1490          |
+| '@dqbd/tiktoken text-davinci-003' | 9078              | 733           |
 
 > **Note** > `@dqbd/tiktoken` which is a wasm port of the official Rust `tiktoken` is ~3-6x faster than JS variants with significantly less memory overhead and variance.
 

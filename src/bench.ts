@@ -4,7 +4,7 @@ import { fixtures } from './fixtures'
 import { tokenizers } from './tokenizers'
 
 async function main() {
-  const bench = new Bench({ iterations: 25 })
+  const bench = new Bench({ iterations: 100 })
 
   for (const tokenizer of tokenizers) {
     bench.add(tokenizer.label, () => {
@@ -20,8 +20,8 @@ async function main() {
   console.table(
     bench.tasks.map(({ name, result }) => ({
       'Task Name': name,
-      'Average Time (ps)': result?.mean * 1000,
-      'Variance (ps)': result?.variance * 1000
+      'Average Time (ms)': Math.round(result?.mean * 1000),
+      'Variance (ms)': Math.round(result?.variance * 1000)
     }))
   )
 
