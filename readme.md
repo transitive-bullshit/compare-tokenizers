@@ -1,6 +1,6 @@
 # Compare Tokenizers <!-- omit in toc -->
 
-> A test suite for comparing Node.js tokenizers.
+> A test suite for comparing Node.js [BPE](https://en.wikipedia.org/wiki/Byte_pair_encoding) tokenizers for use with AI models.
 
 [![Build Status](https://github.com/transitive-bullshit/compare-tokenizers/actions/workflows/test.yml/badge.svg)](https://github.com/transitive-bullshit/compare-tokenizers/actions/workflows/test.yml) [![MIT License](https://img.shields.io/badge/license-MIT-blue)](https://github.com/transitive-bullshit/compare-tokenizers/blob/main/license) [![Prettier Code Formatting](https://img.shields.io/badge/code_style-prettier-brightgreen.svg)](https://prettier.io)
 
@@ -11,7 +11,11 @@
 
 ## Intro
 
-This repo contains a small test suite for comparing the results of different Node.js BPE tokenizers for use with LLMs like GPT-3.
+This repo contains a small test suite for comparing the results of different Node.js [BPE](https://en.wikipedia.org/wiki/Byte_pair_encoding) tokenizers for use with LLMs like GPT-3.
+
+Check out OpenAI's [tiktoken](https://github.com/openai/tiktoken) Rust / Python lib for reference and [OpenAI's Tokenizer Playground](https://platform.openai.com/tokenizer) to experiment with different inputs.
+
+This repo only tests tokenizers aimed at text, not code-specific tokenizers like the ones used by Codex.
 
 ## Usage
 
