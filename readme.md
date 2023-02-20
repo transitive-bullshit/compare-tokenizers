@@ -6,7 +6,7 @@
 
 - [Intro](#intro)
 - [Benchmark](#benchmark)
-- [Results](#results)
+- [Tokenization tests](#tokenization-tests)
 - [License](#license)
 
 ## Intro
@@ -37,7 +37,9 @@ pnpm build
 node build/bench.mjs
 ```
 
-## Results
+## Tokenization tests
+
+This maps over an array of test fixtures in different languages and prints the number of tokens generated for each of the tokenizers.
 
 ```
 0) 5 chars "hello" ⇒ {
