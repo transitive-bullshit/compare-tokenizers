@@ -2,7 +2,7 @@
   "name": "compare-tokenizers",
   "private": true,
   "version": "0.1.0",
-  "description": "A test suite for comparing Node.js tokenizers.",
+  "description": "A test suite comparing Node.js BPE tokenizers for use with AI models.",
   "author": "Travis Fischer <travis@transitivebullsh.it>",
   "repository": "transitive-bullshit/compare-tokenizers",
   "license": "MIT",

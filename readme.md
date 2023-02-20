@@ -1,6 +1,6 @@
 # Compare Tokenizers <!-- omit in toc -->
 
-> A test suite for comparing Node.js [BPE](https://en.wikipedia.org/wiki/Byte_pair_encoding) tokenizers for use with AI models.
+> A test suite comparing Node.js [BPE](https://en.wikipedia.org/wiki/Byte_pair_encoding) tokenizers for use with AI models.
 
 [![Build Status](https://github.com/transitive-bullshit/compare-tokenizers/actions/workflows/test.yml/badge.svg)](https://github.com/transitive-bullshit/compare-tokenizers/actions/workflows/test.yml) [![MIT License](https://img.shields.io/badge/license-MIT-blue)](https://github.com/transitive-bullshit/compare-tokenizers/blob/main/license) [![Prettier Code Formatting](https://img.shields.io/badge/code_style-prettier-brightgreen.svg)](https://prettier.io)
 
