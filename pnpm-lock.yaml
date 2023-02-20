@@ -11,6 +11,7 @@ specifiers:
   lint-staged: ^13.0.3
   npm-run-all: ^4.1.5
   prettier: ^2.8.0
+  tinybench: ^2.3.1
   tsup: ^6.5.0
   tsx: ^3.12.1
   typescript: ^4.9.3
@@ -19,6 +20,7 @@ dependencies:
   '@dqbd/tiktoken': 0.2.1
   gpt-3-encoder: 1.1.4
   gpt3-tokenizer: 1.1.5
+  tinybench: 2.3.1
 
 devDependencies:
   '@trivago/prettier-plugin-sort-imports': 4.0.0_prettier@2.8.4
@@ -2432,6 +2434,10 @@ packages:
   /through/2.3.8:
     resolution: {integrity: sha512-w89qg7PI8wAdvX60bMDP+bFoD5Dvhm9oLheFp5O4a2QF0cSBGsBX4qZmadPMvVqlLJBBci+WqGGOAPvcDeNSVg==}
     dev: true
+
+  /tinybench/2.3.1:
+    resolution: {integrity: sha512-hGYWYBMPr7p4g5IarQE7XhlyWveh1EKhy4wUBS1LrHXCKYgvz+4/jCqgmJqZxxldesn05vccrtME2RLLZNW7iA==}
+    dev: false
 
   /to-fast-properties/2.0.0:
     resolution: {integrity: sha512-/OaKK0xYrs3DmxRYqL/yDc+FxFUVYhDlXMhRmv3z915w2HF1tnN1omB354j8VUGO/hbRzyD6Y3sA7v7GS/ceog==}

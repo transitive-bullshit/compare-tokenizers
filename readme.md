@@ -6,6 +6,7 @@
 
 - [Intro](#intro)
 - [Usage](#usage)
+- [Benchmark](#benchmark)
 - [Results](#results)
 - [License](#license)
 
@@ -23,7 +24,34 @@ This repo only tests tokenizers aimed at text, not code-specific tokenizers like
 npx tsx src/index.ts
 ```
 
+## Benchmark
+
+```
+npx tsx src/bench.ts
+# or
+pnpm build
+node build/bench.mjs
+```
+
+┌─────────┬───────────────────────────────────┬───────────────────┬────────────────────┐
+│ (index) │ Task Name │ Average Time (ps) │ Variance (ps) │
+├─────────┼───────────────────────────────────┼───────────────────┼────────────────────┤
+│ 0 │ 'gpt3-tokenizer' │ 56915.8661365509 │ 290265.5798558206 │
+│ 1 │ 'gpt-3-encoder' │ 31517.61498451233 │ 349758.8963050673 │
+│ 2 │ '@dqbd/tiktoken gpt2' │ 9156.29712451588 │ 1524.8703861656925 │
+│ 3 │ '@dqbd/tiktoken text-davinci-003' │ 8824.23144056086 │ 414.177464988782 │
+└─────────┴───────────────────────────────────┴───────────────────┴────────────────────┘
+
+> **Note** > `@dqbd/tiktoken` which is a wasm port of the official Rust `tiktoken` is ~3-6x faster than JS variants with significantly less memory overhead and variance.
+
 ## Results
+
+```
+npx tsx src/index.ts
+# or
+pnpm build
+node build/index.mjs
+```
 
 ```
 0) 5 chars "hello" ⇒ {
