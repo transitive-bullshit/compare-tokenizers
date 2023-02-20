@@ -15,6 +15,7 @@ jobs:
           - 17
           - 16
           - 14
+          - 12
 
     steps:
       - name: Checkout
