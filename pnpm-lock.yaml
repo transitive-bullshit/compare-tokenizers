@@ -1,7 +1,7 @@
 lockfileVersion: 5.4
 
 specifiers:
-  '@dqbd/tiktoken': ^0.2.1
+  '@dqbd/tiktoken': ^1.0.2
   '@trivago/prettier-plugin-sort-imports': ^4.1.1
   '@types/node': ^18.15.3
   del-cli: ^5.0.0
@@ -11,16 +11,16 @@ specifiers:
   lint-staged: ^13.2.0
   npm-run-all: ^4.1.5
   prettier: ^2.8.0
-  tinybench: ^2.3.1
+  tinybench: ^2.4.0
   tsup: ^6.5.0
   tsx: ^3.12.5
   typescript: ^4.9.5
 
 dependencies:
-  '@dqbd/tiktoken': 0.2.1
+  '@dqbd/tiktoken': 1.0.2
   gpt-3-encoder: 1.1.4
   gpt3-tokenizer: 1.1.5
-  tinybench: 2.3.1
+  tinybench: 2.4.0
 
 devDependencies:
   '@trivago/prettier-plugin-sort-imports': 4.1.1_prettier@2.8.4
@@ -150,8 +150,8 @@ packages:
       to-fast-properties: 2.0.0
     dev: true
 
-  /@dqbd/tiktoken/0.2.1:
-    resolution: {integrity: sha512-Nw9Swn37xZLAvz64qA3tTxy4yJLMhYDj7dWS6uSoHkUJxTn+BcYA+r06O36Q3Jya52b3SvK/LDXzl1dVeHqrew==}
+  /@dqbd/tiktoken/1.0.2:
+    resolution: {integrity: sha512-AjGTBRWsMoVmVeN55NLyupyM8TNamOUBl6tj5t/leLDVup3CFGO9tVagNL1jf3GyZLkWZSTmYVbPQ/M2LEcNzw==}
     dev: false
 
   /@esbuild-kit/cjs-loader/2.4.2:
@@ -2215,8 +2215,8 @@ packages:
     resolution: {integrity: sha512-w89qg7PI8wAdvX60bMDP+bFoD5Dvhm9oLheFp5O4a2QF0cSBGsBX4qZmadPMvVqlLJBBci+WqGGOAPvcDeNSVg==}
     dev: true
 
-  /tinybench/2.3.1:
-    resolution: {integrity: sha512-hGYWYBMPr7p4g5IarQE7XhlyWveh1EKhy4wUBS1LrHXCKYgvz+4/jCqgmJqZxxldesn05vccrtME2RLLZNW7iA==}
+  /tinybench/2.4.0:
+    resolution: {integrity: sha512-iyziEiyFxX4kyxSp+MtY1oCH/lvjH3PxFN8PGCDeqcZWAJ/i+9y+nL85w99PxVzrIvew/GSkSbDYtiGVa85Afg==}
     dev: false
 
   /to-fast-properties/2.0.0:
