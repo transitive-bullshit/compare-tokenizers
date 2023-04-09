@@ -1,6 +1,7 @@
 import * as gpt3Encoder from 'gpt-3-encoder'
 import { encoding_for_model, get_encoding } from '@dqbd/tiktoken'
 import GPT3TokenizerImport from 'gpt3-tokenizer'
+import TiktokenNode from 'tiktoken-node'
 
 const GPT3Tokenizer: typeof GPT3TokenizerImport =
   typeof GPT3TokenizerImport === 'function'
@@ -16,6 +17,9 @@ export interface Tokenizer {
 const gpt3Tokenizer = new GPT3Tokenizer({ type: 'gpt3' })
 const tiktokenGpt2 = get_encoding('gpt2')
 const tiktokenTextDavinci003 = encoding_for_model('text-davinci-003')
+const tiktokenNode = TiktokenNode.getEncoding('gpt2')
+const tiktokenNodeDavinci003 = TiktokenNode.encodingForModel('text-davinci-003')
+
 export const tokenizers: Tokenizer[] = [
   {
     label: 'gpt3-tokenizer',
@@ -37,5 +41,15 @@ export const tokenizers: Tokenizer[] = [
     encode: (i: string) => tiktokenTextDavinci003.encode(i),
     decode: (i: Uint32Array) =>
       new TextDecoder().decode(tiktokenTextDavinci003.decode(i))
+  },
+  {
+    label: 'tiktoken-node gpt2',
+    encode: (i: string) => tiktokenNode.encode(i),
+    decode: (i: number[]) => tiktokenNode.decode(i)
+  },
+  {
+    label: 'tiktoken-node text-davinci-003',
+    encode: (i: string) => tiktokenNodeDavinci003.encode(i),
+    decode: (i: number[]) => tiktokenNodeDavinci003.decode(i)
   }
 ]
