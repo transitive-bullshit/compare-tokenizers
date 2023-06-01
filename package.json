@@ -25,6 +25,7 @@
   "dependencies": {
     "@dqbd/tiktoken": "^1.0.2",
     "gpt-3-encoder": "^1.1.4",
+    "gpt-tokenizer": "^2.1.1",
     "gpt3-tokenizer": "^1.1.5",
     "tiktoken-node": "^0.0.5",
     "tinybench": "^2.4.0"
