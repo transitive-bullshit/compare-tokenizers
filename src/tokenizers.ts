@@ -1,4 +1,6 @@
 import * as gpt3Encoder from 'gpt-3-encoder'
+import * as gptTokenizerGpt from 'gpt-tokenizer/esm/model/text-curie-001'
+import * as gptTokenizerDavinci from 'gpt-tokenizer/esm/model/text-davinci-003'
 import { encoding_for_model, get_encoding } from '@dqbd/tiktoken'
 import GPT3TokenizerImport from 'gpt3-tokenizer'
 import TiktokenNode from 'tiktoken-node'
@@ -30,6 +32,16 @@ export const tokenizers: Tokenizer[] = [
     label: 'gpt-3-encoder',
     encode: (i: string) => gpt3Encoder.encode(i),
     decode: (i: number[]) => gpt3Encoder.decode(i)
+  },
+  {
+    label: 'gpt-tokenizer gpt2',
+    encode: (i: string) => gptTokenizerGpt.encode(i),
+    decode: (i: number[]) => gptTokenizerGpt.decode(i)
+  },
+  {
+    label: 'gpt-tokenizer text-davinci-003',
+    encode: (i: string) => gptTokenizerDavinci.encode(i),
+    decode: (i: number[]) => gptTokenizerDavinci.decode(i)
   },
   {
     label: '@dqbd/tiktoken gpt2',
