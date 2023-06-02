@@ -19,12 +19,16 @@ This repo only tests tokenizers aimed at text, not code-specific tokenizers like
 
 ## Benchmark
 
-| Package / encoder                                                   | Average Time (ms) | Variance (ms) |
-| ------------------------------------------------------------------- | ----------------- | ------------- |
-| [gpt3-tokenizer](https://github.com/botisan-ai/gpt3-tokenizer)      | 56132             | 334621        |
-| [gpt-3-encoder](https://github.com/latitudegames/GPT-3-Encoder)     | 31148             | 333120        |
-| [@dqbd/tiktoken](https://github.com/dqbd/tiktoken) gpt2             | 9267              | 1490          |
-| [@dqbd/tiktoken](https://github.com/dqbd/tiktoken) text-davinci-003 | 9078              | 733           |
+| Package / encoder                                                          | Average Time (ms) | Variance (ms) |
+| -------------------------------------------------------------------------- | ----------------- | ------------- |
+| [gpt3-tokenizer](https://github.com/botisan-ai/gpt3-tokenizer)             | 56132             | 334621        |
+| [gpt-3-encoder](https://github.com/latitudegames/GPT-3-Encoder)            | 31148             | 333120        |
+| [gpt-tokenizer](https://github.com/niieani/gpt-tokenizer) gpt2             | 6792              | 3562          |
+| [gpt-tokenizer](https://github.com/niieani/gpt-tokenizer) text-davinci-003 | 20678             | 6362          |
+| [@dqbd/tiktoken](https://github.com/dqbd/tiktoken) gpt2                    | 6792              | 3562          |
+| [@dqbd/tiktoken](https://github.com/dqbd/tiktoken) text-davinci-003        | 6073              | 178           |
+| [tiktoken-node](https://github.com/ceifa/tiktoken-node) gpt2               | 6005              | 675           |
+| [tiktoken-node](https://github.com/ceifa/tiktoken-node) text-davinci-003   | 5726              | 236           |
 
 _(lower times are better)_
 
@@ -47,70 +51,108 @@ This maps over an array of test fixtures in different languages and prints the n
 0) 5 chars "hello" ⇒ {
   'gpt3-tokenizer': 1,
   'gpt-3-encoder': 1,
+  'gpt-tokenizer gpt2': 1,
+  'gpt-tokenizer text-davinci-003': 1,
   '@dqbd/tiktoken gpt2': 1,
-  '@dqbd/tiktoken text-davinci-003': 1
+  '@dqbd/tiktoken text-davinci-003': 1,
+  'tiktoken-node gpt2': 1,
+  'tiktoken-node text-davinci-003': 1
 }
 1) 17 chars "hello 👋 world 🌍" ⇒ {
   'gpt3-tokenizer': 7,
   'gpt-3-encoder': 7,
+  'gpt-tokenizer gpt2': 7,
+  'gpt-tokenizer text-davinci-003': 7,
   '@dqbd/tiktoken gpt2': 7,
-  '@dqbd/tiktoken text-davinci-003': 7
+  '@dqbd/tiktoken text-davinci-003': 7,
+  'tiktoken-node gpt2': 7,
+  'tiktoken-node text-davinci-003': 7
 }
 2) 445 chars "Lorem ipsum dolor si..." ⇒ {
   'gpt3-tokenizer': 153,
   'gpt-3-encoder': 153,
+  'gpt-tokenizer gpt2': 153,
+  'gpt-tokenizer text-davinci-003': 153,
   '@dqbd/tiktoken gpt2': 153,
-  '@dqbd/tiktoken text-davinci-003': 153
+  '@dqbd/tiktoken text-davinci-003': 153,
+  'tiktoken-node gpt2': 153,
+  'tiktoken-node text-davinci-003': 153
 }
 3) 2636 chars "Lorem ipsum dolor si..." ⇒ {
   'gpt3-tokenizer': 939,
   'gpt-3-encoder': 939,
+  'gpt-tokenizer gpt2': 939,
+  'gpt-tokenizer text-davinci-003': 922,
   '@dqbd/tiktoken gpt2': 939,
-  '@dqbd/tiktoken text-davinci-003': 922
+  '@dqbd/tiktoken text-davinci-003': 922,
+  'tiktoken-node gpt2': 939,
+  'tiktoken-node text-davinci-003': 922
 }
 4) 246 chars "也称乱数假文或者哑元文本， 是印刷及排版..." ⇒ {
   'gpt3-tokenizer': 402,
   'gpt-3-encoder': 402,
+  'gpt-tokenizer gpt2': 402,
+  'gpt-tokenizer text-davinci-003': 402,
   '@dqbd/tiktoken gpt2': 402,
-  '@dqbd/tiktoken text-davinci-003': 402
+  '@dqbd/tiktoken text-davinci-003': 402,
+  'tiktoken-node gpt2': 402,
+  'tiktoken-node text-davinci-003': 402
 }
 5) 359 chars "利ヘオヒヲ特逆もか意書購サ米公え出主トほ..." ⇒ {
   'gpt3-tokenizer': 621,
   'gpt-3-encoder': 621,
+  'gpt-tokenizer gpt2': 621,
+  'gpt-tokenizer text-davinci-003': 621,
   '@dqbd/tiktoken gpt2': 621,
-  '@dqbd/tiktoken text-davinci-003': 621
+  '@dqbd/tiktoken text-davinci-003': 621,
+  'tiktoken-node gpt2': 621,
+  'tiktoken-node text-davinci-003': 621
 }
 6) 2799 chars "это текст-"рыба", ча..." ⇒ {
   'gpt3-tokenizer': 2813,
   'gpt-3-encoder': 2813,
+  'gpt-tokenizer gpt2': 2813,
+  'gpt-tokenizer text-davinci-003': 2811,
   '@dqbd/tiktoken gpt2': 2813,
-  '@dqbd/tiktoken text-davinci-003': 2811
+  '@dqbd/tiktoken text-davinci-003': 2811,
+  'tiktoken-node gpt2': 2813,
+  'tiktoken-node text-davinci-003': 2811
 }
 7) 658 chars "If the dull substanc..." ⇒ {
   'gpt3-tokenizer': 175,
   'gpt-3-encoder': 175,
+  'gpt-tokenizer gpt2': 175,
+  'gpt-tokenizer text-davinci-003': 170,
   '@dqbd/tiktoken gpt2': 175,
-  '@dqbd/tiktoken text-davinci-003': 170
+  '@dqbd/tiktoken text-davinci-003': 170,
+  'tiktoken-node gpt2': 175,
+  'tiktoken-node text-davinci-003': 170
 }
 8) 3189 chars "Enter [two Players a..." ⇒ {
   'gpt3-tokenizer': 876,
   'gpt-3-encoder': 876,
+  'gpt-tokenizer gpt2': 876,
+  'gpt-tokenizer text-davinci-003': 872,
   '@dqbd/tiktoken gpt2': 876,
-  '@dqbd/tiktoken text-davinci-003': 872
+  '@dqbd/tiktoken text-davinci-003': 872,
+  'tiktoken-node gpt2': 876,
+  'tiktoken-node text-davinci-003': 872
 }
 9) 17170 chars "ANTONY. [To CAESAR] ..." ⇒ {
   'gpt3-tokenizer': 5801,
   'gpt-3-encoder': 5801,
+  'gpt-tokenizer gpt2': 5801,
+  'gpt-tokenizer text-davinci-003': 5306,
   '@dqbd/tiktoken gpt2': 5801,
-  '@dqbd/tiktoken text-davinci-003': 5306
+  '@dqbd/tiktoken text-davinci-003': 5306,
+  'tiktoken-node gpt2': 5801,
+  'tiktoken-node text-davinci-003': 5306
 }
 ```
 
 To reproduce:
 
 ```
-npx tsx src/index.ts
-# or
 pnpm build
 node build/index.mjs
 ```
