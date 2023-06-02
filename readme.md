@@ -37,8 +37,6 @@ _(lower times are better)_
 To reproduce:
 
 ```
-npx tsx src/bench.ts
-# or
 pnpm build
 node build/bench.mjs
 ```
