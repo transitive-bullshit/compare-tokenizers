@@ -19,16 +19,14 @@ This repo only tests tokenizers aimed at text, not code-specific tokenizers like
 
 ## Benchmark
 
-| Package / encoder                                                          | Average Time (ms) | Variance (ms) |
-| -------------------------------------------------------------------------- | ----------------- | ------------- |
-| [gpt3-tokenizer](https://github.com/botisan-ai/gpt3-tokenizer)             | 56132             | 334621        |
-| [gpt-3-encoder](https://github.com/latitudegames/GPT-3-Encoder)            | 31148             | 333120        |
-| [gpt-tokenizer](https://github.com/niieani/gpt-tokenizer) gpt2             | 6792              | 3562          |
-| [gpt-tokenizer](https://github.com/niieani/gpt-tokenizer) text-davinci-003 | 20678             | 6362          |
-| [@dqbd/tiktoken](https://github.com/dqbd/tiktoken) gpt2                    | 6792              | 3562          |
-| [@dqbd/tiktoken](https://github.com/dqbd/tiktoken) text-davinci-003        | 6073              | 178           |
-| [tiktoken-node](https://github.com/ceifa/tiktoken-node) gpt2               | 6005              | 675           |
-| [tiktoken-node](https://github.com/ceifa/tiktoken-node) text-davinci-003   | 5726              | 236           |
+| Task Name      | Average Time (ms) | bar                                                 | Variance (ms) |
+| -------------- | ----------------- | --------------------------------------------------- | ------------- |
+| gpt3-tokenizer | 509               | ███████████████████████████████████████████████████ | 20428         |
+| gpt-3-encoder  | 272               | ███████████████████████████                         | 64022         |
+| js-tiktoken    | 35                | ███                                                 | 8971          |
+| gpt-tokenizer  | 26                | ███                                                 | 3028          |
+| tiktoken       | 13                | █                                                   | 347           |
+| tiktoken-node  | 11                | █                                                   | 133           |
 
 _(lower times are better)_
 

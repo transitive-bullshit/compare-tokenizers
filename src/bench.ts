@@ -1,10 +1,11 @@
+import { markdownTable } from 'markdown-table'
 import { Bench } from 'tinybench'
 
 import { fixtures } from './fixtures'
 import { tokenizers } from './tokenizers'
 
 async function main() {
-  const bench = new Bench({ iterations: 25 })
+  const bench = new Bench({ iterations: 2 })
 
   for (const tokenizer of tokenizers) {
     bench.add(tokenizer.label, () => {
@@ -17,12 +18,24 @@ async function main() {
   console.log('running benchmarks (may take 10s)...')
   await bench.run()
 
+  let bars = bench.tasks.map(({ name, result }) => {
+    return '█'.repeat(Math.round(result?.mean / 10))
+  })
+  const maxBar = Math.max(...bars.map((b) => b.length))
+  bars = bars.map((b) => b.padEnd(maxBar, ' '))
+
+  const table = bench.tasks.map(({ name, result }, i) => ({
+    'Task Name': name,
+    'Average Time (ms)': (result?.mean).toFixed(0),
+    bar: bars[i],
+    'Variance (ms)': Math.round(result?.variance * 1000)
+  }))
+  const keys = Object.keys(table[0])
   console.table(
-    bench.tasks.map(({ name, result }) => ({
-      'Task Name': name,
-      'Average Time (ms)': Math.round(result?.mean * 1000),
-      'Variance (ms)': Math.round(result?.variance * 1000)
-    }))
+    markdownTable([
+      keys,
+      ...table.map((x) => Object.values(x) as [string, string])
+    ])
   )
 
   // for (let i = 0; i < fixtures.length; i++) {
