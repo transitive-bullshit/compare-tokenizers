@@ -1,8 +1,8 @@
 import * as gpt3Encoder from 'gpt-3-encoder'
-import * as gptTokenizerGpt from 'gpt-tokenizer/esm/model/text-curie-001'
-import * as gptTokenizerDavinci from 'gpt-tokenizer/esm/model/text-davinci-003'
-import { encoding_for_model, get_encoding } from '@dqbd/tiktoken'
+import * as gptTokenizer from 'gpt-tokenizer'
+import * as jsTiktoken from 'js-tiktoken'
 import GPT3TokenizerImport from 'gpt3-tokenizer'
+import { encoding_for_model } from 'tiktoken'
 import TiktokenNode from 'tiktoken-node'
 
 const GPT3Tokenizer: typeof GPT3TokenizerImport =
@@ -17,10 +17,11 @@ export interface Tokenizer {
 }
 
 const gpt3Tokenizer = new GPT3Tokenizer({ type: 'gpt3' })
-const tiktokenGpt2 = get_encoding('gpt2')
-const tiktokenTextDavinci003 = encoding_for_model('text-davinci-003')
-const tiktokenNode = TiktokenNode.getEncoding('gpt2')
-const tiktokenNodeDavinci003 = TiktokenNode.encodingForModel('text-davinci-003')
+const tiktokenWasm = encoding_for_model('gpt-3.5-turbo')
+const tiktokenNode = TiktokenNode.encodingForModel('gpt-3.5-turbo')
+const jsTiktokenTokenizer = jsTiktoken.getEncoding(
+  jsTiktoken.getEncodingNameForModel('gpt-35-turbo')
+)
 
 export const tokenizers: Tokenizer[] = [
   {
@@ -34,34 +35,24 @@ export const tokenizers: Tokenizer[] = [
     decode: (i: number[]) => gpt3Encoder.decode(i)
   },
   {
-    label: 'gpt-tokenizer gpt2',
-    encode: (i: string) => gptTokenizerGpt.encode(i),
-    decode: (i: number[]) => gptTokenizerGpt.decode(i)
+    label: 'js-tiktoken',
+    encode: (i: string) => jsTiktokenTokenizer.encode(i),
+    decode: (i: number[]) => jsTiktokenTokenizer.decode(i)
   },
   {
-    label: 'gpt-tokenizer text-davinci-003',
-    encode: (i: string) => gptTokenizerDavinci.encode(i),
-    decode: (i: number[]) => gptTokenizerDavinci.decode(i)
+    label: 'gpt-tokenizer',
+    encode: (i: string) => gptTokenizer.encode(i),
+    decode: (i: number[]) => gptTokenizer.decode(i)
+  },
+
+  {
+    label: 'tiktoken',
+    encode: (i: string) => tiktokenWasm.encode(i),
+    decode: (i: Uint32Array) => new TextDecoder().decode(tiktokenWasm.decode(i))
   },
   {
-    label: '@dqbd/tiktoken gpt2',
-    encode: (i: string) => tiktokenGpt2.encode(i),
-    decode: (i: Uint32Array) => new TextDecoder().decode(tiktokenGpt2.decode(i))
-  },
-  {
-    label: '@dqbd/tiktoken text-davinci-003',
-    encode: (i: string) => tiktokenTextDavinci003.encode(i),
-    decode: (i: Uint32Array) =>
-      new TextDecoder().decode(tiktokenTextDavinci003.decode(i))
-  },
-  {
-    label: 'tiktoken-node gpt2',
+    label: 'tiktoken-node',
     encode: (i: string) => tiktokenNode.encode(i),
     decode: (i: number[]) => tiktokenNode.decode(i)
-  },
-  {
-    label: 'tiktoken-node text-davinci-003',
-    encode: (i: string) => tiktokenNodeDavinci003.encode(i),
-    decode: (i: number[]) => tiktokenNodeDavinci003.decode(i)
   }
 ]
