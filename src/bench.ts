@@ -31,7 +31,7 @@ async function main() {
     'Variance (ms)': Math.round(result?.variance * 1000)
   }))
   const keys = Object.keys(table[0])
-  console.table(
+  console.log(
     markdownTable([
       keys,
       ...table.map((x) => Object.values(x) as [string, string])
